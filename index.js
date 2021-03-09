@@ -1,15 +1,16 @@
 'use strict';
 
-//const bootstrap = require('./lib/infrastructure/config/bootstrap');
-const environment = require('./Infrastructure/Config/environment');
-const SERVER = require('./Infrastructure/WebServer/server');
+const database = require('./persistance/config/initializeDatabase');
+const environment = require('./infrastructure/config/environment');
+const server = require('./infrastructure/webServer/server');
 
 // Start the server
 const start = async () => {
   try {
-    //await bootstrap.init();
-    await SERVER.createServer(environment.PORT, environment.URL);
-    await SERVER.startServer();
+    console.log(database);
+    await database.initialize();
+    await server.createServer(environment.PORT, environment.URL);
+    await server.startServer();
   } catch (err) {
     console.log(err);
     process.exit(1);
