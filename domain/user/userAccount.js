@@ -8,6 +8,7 @@ module.exports = class {
     firstName,
     middleName,
     lastName,
+    email,
     gender,
     dob,
     cellNumber,
@@ -24,6 +25,7 @@ module.exports = class {
     this.firstName = firstName;
     this.middleName = middleName;
     this.lastName = lastName;
+    this.email = email;
     this.gender = gender;
     this.dob = dob;
     this.cellNumber = cellNumber;
@@ -34,4 +36,35 @@ module.exports = class {
     this.userCustomerServiceList = userCustomerServiceList;
     this.isActive = isActive;
   }
+
+  //   get userName() {
+  //     return this.userName;
+  //   }
+  //   set userName(userName) {
+  //     this.userName = userName;
+  //   }
+  //   get fullName() {
+  //     return `${this.firstName} ${this.lastName}`;
+  //   }
+  //   get dateOfBirth() {
+  //     return this.dob;
+  //   }
+  //   get emailAddress() {
+  //     return this.email;
+  //   }
+  //   set emailAddress(email) {
+  //     this.email = email;
+  //   }
+  //   get userCustomerServiceList() {
+  //     return this.userCustomerServiceList;
+  //   }
+  //   set userCustomerServiceList(userCustomerServiceList) {
+  //     this.userCustomerServiceList = userCustomerServiceList;
+  //   }
+  //   set firstName(firstName) {
+  //     this.firstName = firstName;
+  //   }
+  //   set lastName(lastName) {
+  //     this.lastName = lastName;
+  //   }
 };
