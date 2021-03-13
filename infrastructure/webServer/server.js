@@ -6,14 +6,14 @@ module.exports = {
   _app: null,
   _PORT: 0,
   _URL: '',
-  createServer(PORT, URL) {
+  async createServer(PORT, URL) {
     this._app = express();
     this._app.use(express.json());
     this._PORT = PORT;
     this._URL = URL;
   },
-  startServer() {
-    let server = this._app.listen(this._PORT, () =>
+  async startServer() {
+    let server = await this._app.listen(this._PORT, async () =>
       console.log(`listening on ${this._URL}:${this._PORT}`)
     );
     return server;
