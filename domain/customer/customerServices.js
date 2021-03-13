@@ -4,6 +4,7 @@ module.exports = class {
   constructor(
     id = null,
     customerId,
+    businessTypeId,
     serviceName,
     serviceDescription,
     logoFile,
@@ -16,6 +17,7 @@ module.exports = class {
   ) {
     this.id = id;
     this.customerId = customerId;
+    this.businessTypeId = businessTypeId;
     this.serviceName = serviceName;
     this.serviceDescription = serviceDescription;
     this.logoFile = logoFile;
