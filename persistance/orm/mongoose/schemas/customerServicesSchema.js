@@ -3,42 +3,33 @@
 const mongoose = require('../mongooseConfiguration');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  userName: {
+const customerServicesSchema = new Schema({
+  customerId: {
+    type: Schema.Types.ObjectId,
+    ref: 'customerAccount',
+    required: true,
+  },
+  businessTypeId: {
+    type: Schema.Types.ObjectId,
+    ref: 'businessAccount',
+    required: true,
+  },
+  serviceName: {
     type: String,
     required: true,
   },
-  passCode: {
+  serviceDescription: {
     type: String,
     required: true,
   },
-  firstName: {
+  logoFileUrl: {
     type: String,
     required: true,
   },
-  middleName: {
-    type: String,
+  isDefault: {
+    type: Boolean,
     required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  gender: {
-    type: String,
-    required: true,
-  },
-  dob: {
-    type: Date,
-    required: true,
-  },
-  cellNumber: {
-    type: String,
-    required: true,
+    default: true,
   },
   isActive: {
     type: Boolean,
@@ -63,8 +54,5 @@ const userSchema = new Schema({
     required: true,
     default: Date.now,
   },
-  userCustomerServiceList: {
-    type: Array,
-  },
 });
-module.exports = mongoose.model('userAccount', userSchema);
+module.exports = mongoose.model('customerService', customerServicesSchema);

@@ -7,7 +7,7 @@ module.exports = class {
     businessTypeId,
     serviceName,
     serviceDescription,
-    logoFile,
+    logoFileUrl,
     isDefault,
     isActive,
     createdBy,
@@ -20,7 +20,7 @@ module.exports = class {
     this.businessTypeId = businessTypeId;
     this.serviceName = serviceName;
     this.serviceDescription = serviceDescription;
-    this.logoFile = logoFile;
+    this.logoFileUrl = logoFileUrl;
     this.isDefault = isDefault;
     this.isActive = isActive;
     this.createdBy = createdBy;

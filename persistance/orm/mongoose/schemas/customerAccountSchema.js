@@ -3,7 +3,7 @@
 const mongoose = require('../mongooseConfiguration');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const customerAccountSchema = new Schema({
   userName: {
     type: String,
     required: true,
@@ -12,31 +12,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  firstName: {
-    type: String,
-    required: true,
-  },
-  middleName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  gender: {
-    type: String,
-    required: true,
-  },
-  dob: {
-    type: Date,
-    required: true,
-  },
-  cellNumber: {
+  customerName: {
     type: String,
     required: true,
   },
@@ -62,9 +38,6 @@ const userSchema = new Schema({
     type: Date,
     required: true,
     default: Date.now,
-  },
-  userCustomerServiceList: {
-    type: Array,
-  },
+  }
 });
-module.exports = mongoose.model('userAccount', userSchema);
+module.exports = mongoose.model('customerAccount', customerAccountSchema);
