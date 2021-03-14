@@ -4,8 +4,9 @@ const database = require('./persistance/config/initializeDatabase');
 const environment = require('./infrastructure/config/environment');
 const server = require('./infrastructure/webServer/server');
 
-// const domainUser = require('./domain/user/userAccount');
-// const userAccountRepository = require('./persistance/user/mongoose/userAccountRepository');
+//const domainUser = require('./domain/user/userAccount');
+const userAccountRepository = require('./persistance/user/mongoose/userAccountRepository');
+const userAccountService = require('./application/user/userAccountService');
 
 // Start the server
 const start = async () => {
@@ -34,6 +35,10 @@ const start = async () => {
     // );
     // const repository = new userAccountRepository();
     // await repository.saveUser(user);
+    const repository = new userAccountRepository();
+    const service = new userAccountService(repository);
+    const user = await service.getByEmail('khurram@bitofai.com');
+    console.log(user);
   } catch (err) {
     console.log(err);
     process.exit(1);

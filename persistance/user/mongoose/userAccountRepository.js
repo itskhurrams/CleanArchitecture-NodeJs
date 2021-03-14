@@ -1,17 +1,37 @@
 'use strict';
-
-const userAccount = require('../../../domain/user/userAccount');
 const userAccountRepository = require('../../../domain/user/userAccountRepository');
-const userAccountSchema = require('../../orm/mongoose/schemas/userAccountSchema');
+const MongooseUserAccount = require('../../orm/mongoose/schemas/userAccountSchema');
 
 module.exports = class extends userAccountRepository {
   constructor() {
     super();
   }
+  async getUsers() {
+    return await MongooseUserAccount.find();
+  }
+  async getById(userId) {
+    return await MongooseUserAccount.findById(userId);
+  }
+  async getByEmail(email) {
+    return await MongooseUserAccount.findOne({ email: email });
+  }
   async saveUser(userAccount) {
-    const schemaUser = new userAccountSchema(userAccount);
+    const schemaUser = new MongooseUserAccount(userAccount);
     await schemaUser.save();
   }
+  async login(userName, password) {
+    return await MongooseUserAccount.findOne({
+      userName: userName,
+      passCode: password,
+    });
+  }
+  async checkAvailability(userName) {
+    return await MongooseUserAccount.findOne({ userName: userName });
+  }
+  async deleteUser(userId) {
+    return await MongooseUserAccount.findByIdAndRemove(userId);
+  }
+
   /*
   async persist(userEntity) {
     const { firstName, lastName, email, password } = userEntity;
