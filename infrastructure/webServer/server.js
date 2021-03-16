@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const userRoutes = require('../../api/routes/userRoutes');
 
 module.exports = {
   _app: null,
@@ -8,14 +9,16 @@ module.exports = {
   _URL: '',
   async createServer(PORT, URL) {
     this._app = express();
-    this._app.use(express.json());
     this._PORT = PORT;
     this._URL = URL;
+    this._app.use(express.json());
+    this._app.use(userRoutes);
   },
   async startServer() {
     let server = await this._app.listen(this._PORT, async () =>
       console.log(`listening on ${this._URL}:${this._PORT}`)
     );
+
     return server;
   },
 };

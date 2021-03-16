@@ -4,10 +4,10 @@ const database = require('./persistance/config/initializeDatabase');
 const environment = require('./infrastructure/config/environment');
 const server = require('./infrastructure/webServer/server');
 
-//const domainUser = require('./domain/user/userAccount');
-const userAccountRepository = require('./persistance/user/mongoose/userAccountRepository');
-const userAccountService = require('./application/user/userAccountService');
-
+// //const domainUser = require('./domain/user/userAccount');
+// const userAccountRepository = require('./persistance/user/mongoose/userAccountRepository');
+// const userAccountService = require('./application/user/userAccountService');
+//const userController = require('./api/controllers/user/userAccountController');
 // Start the server
 const start = async () => {
   try {
@@ -34,11 +34,13 @@ const start = async () => {
     //   ''
     // );
     // const repository = new userAccountRepository();
-    // await repository.saveUser(user);
-    const repository = new userAccountRepository();
-    const service = new userAccountService(repository);
-    const user = await service.getByEmail('khurram@bitofai.com');
-    console.log(user);
+    // // await repository.saveUser(user);
+    // const repository = new userAccountRepository();
+    // const service = new userAccountService(repository);
+    // const controller = new userController(service);
+    //const user = await controller.getUsers();
+
+    //console.log(user);
   } catch (err) {
     console.log(err);
     process.exit(1);
