@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const environment = require('../../../infrastructure/config/environment');
 
 mongoose
-  .connect(environment.database.url, {
+  .connect(environment.DATABASE_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

@@ -5,12 +5,12 @@ const environment = require('../../infrastructure/config/environment');
 
 module.exports = {
   async initialize() {
-    if (environment.database.dialect === constants.SUPPORTED_DATABASE.MONGO) {
+    if (environment.DATABASE_DIALECT === constants.SUPPORTED_DATABASE.MONGO) {
       require('../orm/mongoose/mongooseConfiguration');
     }
     if (
-      environment.database.dialect === constants.SUPPORTED_DATABASE.POSTGRE ||
-      environment.database.dialect === constants.SUPPORTED_DATABASE.SQLITE
+      environment.DATABASE_DIALECT === constants.SUPPORTED_DATABASE.POSTGRE ||
+      environment.DATABASE_DIALECT === constants.SUPPORTED_DATABASE.SQLITE
     ) {
       const sequelize = require('../orm/sequelize/sequelizeConfiguration');
       try {

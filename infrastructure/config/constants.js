@@ -1,7 +1,6 @@
 'use strict';
-
-module.exports = {
-  HTTP_STATUS_CODES: {
+module.exports = class CONSTANTS {
+  static HTTP_STATUS_CODES = {
     //Informational - 1xx
     HTTP_100_CONTINUE: 100,
     HTTP_101_SWITCHING_PROTOCOLS: 101,
@@ -70,10 +69,10 @@ module.exports = {
     HTTP_509_BANDWIDTH_LIMIT_EXCEEDED: 509,
     HTTP_510_NOT_EXTENDED: 510,
     HTTP_511_NETWORK_AUTHENTICATION_REQUIRED: 511,
-  },
-  SUPPORTED_DATABASE: {
+  };
+  static SUPPORTED_DATABASE = {
     MONGO: 'mongo',
     POSTGRE: 'postgre',
     SQLITE: 'sqlite',
-  },
+  };
 };
