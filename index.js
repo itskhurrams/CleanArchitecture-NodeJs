@@ -1,19 +1,14 @@
 'use strict';
 
 const database = require('./persistance/config/initializeDatabase');
-const environment = require('./infrastructure/config/environment');
 const server = require('./infrastructure/webServer/server');
 
-// //const domainUser = require('./domain/user/userAccount');
-// const userAccountRepository = require('./persistance/user/mongoose/userAccountRepository');
-// const userAccountService = require('./application/user/userAccountService');
-//const userController = require('./api/controllers/user/userAccountController');
 // Start the server
 const start = async () => {
   try {
     //console.log(database);
     await database.initialize();
-    await server.createServer(environment.PORT, environment.URL);
+    await server.createServer();
     await server.startServer();
     // const user = new domainUser(
     //   null,

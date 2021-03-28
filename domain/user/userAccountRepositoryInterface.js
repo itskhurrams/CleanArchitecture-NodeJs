@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = class {
+module.exports = class UserAccountRepositoryInterface {
   getUsers() {
     throw new Error('ERR_METHOD_NOT_IMPLEMENTED');
   }

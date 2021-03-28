@@ -3,10 +3,13 @@ require('dotenv').config();
 const constants = require('../../infrastructure/config/constants');
 const environment = require('../../infrastructure/config/environment');
 
-module.exports = {
-  async initialize() {
+module.exports = class InitializeDatabase {
+  constructor(dbConfig) {
+    this.configureDatabase = dbConfig.configureDatabase;
+  }
+  static initialize = async () => {
     if (environment.DATABASE_DIALECT === constants.SUPPORTED_DATABASE.MONGO) {
-      require('../orm/mongoose/mongooseConfiguration');
+      this.configureDatabase.connectMongoose();
     }
     if (
       environment.DATABASE_DIALECT === constants.SUPPORTED_DATABASE.POSTGRE ||
@@ -20,5 +23,5 @@ module.exports = {
         console.error('Unable to connect to the database:', err);
       }
     }
-  },
+  };
 };
